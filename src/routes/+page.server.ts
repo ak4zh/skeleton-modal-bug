@@ -11,8 +11,8 @@ export const load = async () => {
 };
 
 export const actions = {
-    default: async () => {
-        const form = await superValidate(schema);
+    default: async ({ request }) => {
+        const form = await superValidate(request, schema);
         return { form }
     }
 }

@@ -4,13 +4,12 @@
 
     const { form, enhance, errors } = superForm({}, {
         onUpdate: ({ form }) => {
-			modalStore.close()
+			if (form.valid) modalStore.close()
 		}
     });
-    $: console.log($errors)
 </script>
 
-<form class="flex gap-4 card modal w-modal" method="POST" use:enhance>
+<form class="flex gap-4 card" method="POST" use:enhance>
     <input class="input" name="name" bind:value={$form.name}/> 
     <button class="btn variant-priamey-warning">Submit</button>
 </form>
