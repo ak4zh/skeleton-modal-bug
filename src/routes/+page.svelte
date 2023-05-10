@@ -3,10 +3,9 @@
 	import { modalStore, type ModalSettings, type ModalComponent } from "@skeletonlabs/skeleton";
 	import Form from "./Form.svelte";
 
-	const formModal = (reservationId: number | undefined): ModalSettings => {
+	const formModal = (): ModalSettings => {
 		return {
 			type: 'component',
-			meta: { reservationId },
 			component: {
 				ref: Form,
 				props: { background: 'bg-red-500' },
@@ -14,7 +13,7 @@
 		}
 	}
 </script>
-<button class="btn variant-filled" on:click={() => modalStore.trigger(formModal(1))}>Open Form</button>
+<button class="btn variant-filled" on:click={() => modalStore.trigger(formModal())}>Open Form</button>
 <div class="container h-full mx-auto flex justify-center items-center">
 	<div class="space-y-5">
 		<h1 class="h1">Let's get cracking bones!</h1>

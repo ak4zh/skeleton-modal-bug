@@ -6,7 +6,7 @@ const schema = z.object({
 });
 
 export const load = async () => {
-    const form = await superValidate(schema);
+    const form = await superValidate({ name: 'ak4zh' }, schema);
     return { form };
 };
 
